@@ -2,7 +2,7 @@
 ## Sistemas Distribuídos – QXD0043 | UFC Quixadá
 
 Continuação do Trabalho 3A. O sistema de estoque REST ganhou um
-Broker Pub-Sub embutido no Spring Boot usando Server-Sent Events (SSE).
+Broker Pub-Sub embutido no spring boot usando server-sent events (SSE).
 Nenhum socket manual foi criado — toda comunicação é HTTP.
 
 ---
@@ -100,25 +100,6 @@ node cliente.js 192.168.0.10 estudante-2
 
 ---
 
-## Demonstração do Desacoplamento Temporal
-
-Abra dois terminais com clientes diferentes e IDs diferentes:
-
-```bash
-# Terminal A (Python)
-python cliente.py localhost estudante-1
-
-# Terminal B (JavaScript) — conecta depois
-node cliente.js localhost estudante-2
-```
-
-No Terminal A, adicione suplementos. Os eventos são publicados e
-ficam no histórico. Ao iniciar o Terminal B (JavaScript), ele
-conecta ao SSE e recebe automaticamente os eventos anteriores —
-mesmo que os tenha perdido por não estar online no momento.
-
----
-
 ## Objetos Distribuídos (mínimo 3)
 
 | # | Classe | Papel |
@@ -126,14 +107,3 @@ mesmo que os tenha perdido por não estar online no momento.
 | 1 | `EstoqueRepository` | Repositório central em memória |
 | 2 | `SuplementoService` | CRUD + publica eventos de suplemento |
 | 3 | `LoteService`       | Gestão de lotes + publica alertas de vencimento |
-
----
-
-## Requisitos do Trabalho 2 Mantidos
-
-- Mínimo 4 classes entidade (Suplemento, WheyProtein, Creatina, Vitaminas, PreTreino, Lote)
-- Mínimo 2 composições "tem-um" (Suplemento tem List<Lote>; Repository tem List<Suplemento>)
-- Mínimo 2 composições "é-um" (subclasses de Suplemento)
-- Mínimo 4 métodos remotos (7 endpoints REST + 4 endpoints SSE)
-- Sem sockets ou RMI — apenas HTTP/SSE
-- Clientes em 2 linguagens: Python e JavaScript
