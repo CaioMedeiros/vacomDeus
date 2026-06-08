@@ -1,0 +1,16 @@
+{
+  "name": "estoque-cliente-js",
+  "version": "1.0.0",
+  "description": "Cliente JavaScript para API REST + SSE Pub-Sub - Trabalho 3B SD",
+  "type": "module",
+  "main": "cliente.js",
+  "scripts": {
+    "start": "node cliente.js"
+  },
+  "dependencies": {
+    "eventsource": "^2.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
